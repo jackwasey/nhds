@@ -8,8 +8,7 @@
 \url{https://www.cdc.gov/nchs/nhds/index.htm}
 }
 \description{
-This is public domain data from the US [Center for Disease
-Control](https://www.cdc.gov). This is deidentified patient data describing
+This is public domain data from the US \href{https://www.cdc.gov}{Center for Disease Control}. This is deidentified patient data describing
 the information at the end of a hospital admission, including demographic
 information, admission diagnoses, comorbidities and procedure codes, death or
 disposition. There are no identifiers in the data, so an integer count was

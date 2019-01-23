@@ -10,6 +10,7 @@
 #' library(icd)
 #' colSums(comorbid_charlson(nhds2010))
 #' @keywords internal
+#' @noRd
 parse_nhds2010 <- function(save = TRUE) {
   widths <- c(2, 1, 1, 2, 1, 1, 1, 2, 1, 4, 1,
               1, 1, 1, 5, 2,

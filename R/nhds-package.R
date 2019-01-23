@@ -1,4 +1,6 @@
 #' @keywords internal
+#' @examples
+#' nhds2010[1:5, ]
 "_PACKAGE"
 
 # The following block is used by usethis to automatically manage

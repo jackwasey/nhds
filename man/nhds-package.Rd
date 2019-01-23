@@ -11,8 +11,19 @@ The National Hospital Discharge Survey (2010)
     that year. The data is from a subset of US hospitals and is
     deidentified.
 }
+\examples{
+nhds2010[1:5, ]
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/jackwasey/nhds}
+  \item Report bugs at \url{https://github.com/jackwasey/nhds/issues}
+}
+
+}
 \author{
-\strong{Maintainer}: Jack Wasey \email{first.last@example.com}
+\strong{Maintainer}: Jack Wasey \email{jack@jackwasey.com}
 
 }
 \keyword{internal}
