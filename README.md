@@ -7,6 +7,8 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/nhds)](https://cran.r-project.org/package=nhds)
+[![Travis build
+status](https://travis-ci.org/jackwasey/nhds.svg?branch=master)](https://travis-ci.org/jackwasey/nhds)
 <!-- badges: end -->
 
 The goal of nhds is to …
