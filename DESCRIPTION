@@ -1,0 +1,23 @@
+Package: nhds
+Title: National Hospital Discharge Survey 2010 Data
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Jack",
+           family = "Wasey",
+           role = c("aut", "cre"),
+           email = "first.last@example.com")
+Description: The National Hospital Discharge Survey (2010)
+    summarizes the state of patient at the end of hospital admissions for
+    that year. The data is from a subset of US hospitals and is
+    deidentified.
+License: GPL-3
+Depends:
+    R (>= 2.10)
+Suggests:
+    icd,
+    readr
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+URL: https://github.com/jackwasey/nhds
+BugReports: https://github.com/jackwasey/nhds/issues
