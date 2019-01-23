@@ -1,0 +1,5 @@
+^README\.Rmd$
+^cran-comments\.md$
+^nhds\.Rproj$
+^\.Rproj\.user$
+^data-raw$
