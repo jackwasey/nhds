@@ -1,5 +1,6 @@
 ^\.travis\.yml$
 ^README\.Rmd$
+^README\.html$
 ^cran-comments\.md$
 ^nhds\.Rproj$
 ^\.Rproj\.user$
