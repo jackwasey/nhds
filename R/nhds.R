@@ -49,9 +49,10 @@ parse_nhds2010 <- function(save = TRUE) {
     X45 = readr::col_character() # admitting diagnosis
   )
   nhds2010 <- readr::read_fwf(
-   file.path("data-raw", "NHDS10.PU.txt.bz2"),
+    file.path("data-raw", "NHDS10.PU.txt.bz2"),
     col_positions = readr::fwf_widths(widths),
-    col_types = col_spec
+    col_types = col_spec,
+    progress = FALSE
   )
   names(nhds2010) <- c(
     # skipping "year", #int
@@ -90,8 +91,8 @@ parse_nhds2010 <- function(save = TRUE) {
   nhds2010$newborn <- nhds2010$newborn == 1L
   nhds2010$age_unit <- mkf(nhds2010$age_unit, c(
     "years" = 1,
-                                            "months" = 2,
-                                            "days" = 3))
+    "months" = 2,
+    "days" = 3))
   nhds2010$sex <- mkf(nhds2010$sex, c(
     "male" = 1,
     "female" = 2
@@ -127,14 +128,13 @@ parse_nhds2010 <- function(save = TRUE) {
     "south" = 3,
     "west" = 4
   ))
-  # todo ordered factor
-  nhds2010$n_beds <- mkf(nhds2010$n_beds, c(
+  nhds2010$n_beds <- ordered(mkf(nhds2010$n_beds, c(
     "6-99" = 1,
     "100-199" = 2,
     "200-299" = 3,
     "300-499" = 4,
     "500+" = 5
-  ))
+  )))
   nhds2010$hospital_ownership <- mkf(nhds2010$hospital_ownership, c(
     "proprietary" = 1,
     "government" = 2,
@@ -188,13 +188,18 @@ parse_nhds2010 <- function(save = TRUE) {
     "Not available" = 99
   ))
   nhds2010 <- as.data.frame(nhds2010)
-  for (dx_col in c(15:37, 43))
+  for (dx_col in c(15:37, 43)) {
     nhds2010[[dx_col]] <- sub(pattern = "-",
-                            replacement = "",
-                            x = nhds2010[[dx_col]])
+                              replacement = "",
+                              x = nhds2010[[dx_col]])
+  }
   nhds2010 <- cbind(id = seq_len(nrow(nhds2010)),
-                  nhds2010,
-                  stringsAsFactors = FALSE)
+                    nhds2010,
+                    stringsAsFactors = FALSE)
+  for (col in grep("dx..", names(nhds2010), value = TRUE))
+    nhds2010[[col]] <- icd::as.icd9cm(nhds2010[[col]])
+  for (col in grep("pc..", names(nhds2010), value = TRUE))
+    nhds2010[[col]] <- icd::as.icd9cm_pc(nhds2010[[col]])
   # xz didn't compress as well as bzip2
   if (save)
     save(nhds2010,
