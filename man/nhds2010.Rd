@@ -8,10 +8,38 @@
 \url{https://www.cdc.gov/nchs/nhds/index.htm}
 }
 \description{
-This is public domain data from the US \href{https://www.cdc.gov}{Center for Disease Control}. This is deidentified patient data describing
-the information at the end of a hospital admission, including demographic
-information, admission diagnoses, comorbidities and procedure codes, death or
-disposition. There are no identifiers in the data, so an integer count was
-included in this data for this purpose.
+The United States National Hospital Discharge Survey (NHDS) 2010
+  data is public domain data from the US [Center for Disease
+  Control](https://www.cdc.gov). This is de-identified patient data with
+  summary information about each patient at the end of a hospital admission,
+  including demographic information, admission diagnoses, comorbidities and
+  procedure codes, death or disposition. There are no identifiers in the
+  data, so a simple count was included.
 }
+\examples{
+head(nhds2010)
+colSums(icd::comorbid_ahrq(nhds2010))
+nhds2010$hypertension <- icd::comorbid_ahrq(nhds2010)[, "HTN"]
+nhds2010$charlson <- icd::charlson(nhds2010)
+hist(nhds2010[nhds2010$age_unit == "years", "age"],
+     main = "Histogram of age when specified in years",
+     xlab = "Age in years"
+)
+boxplot(age ~ hypertension,
+        data = nhds2010,
+        outline = FALSE,
+        ylab = "Age")
+boxplot(charlson ~ adm_type,
+        data = nhds2010,
+        las = 2,
+        varwidth = TRUE,
+        outline = FALSE,
+        ylab = "Charlson Score"
+)
+}
+\concept{Diagnostic codes}
+\concept{Hospital}
+\concept{Hospital discharge data}
+\concept{ICD-9 codes}
+\concept{Patient data}
 \keyword{datasets}

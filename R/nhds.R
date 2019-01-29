@@ -4,16 +4,12 @@
 #' package. The raw data is 22M, and the R data is 3.3M when compressed. The
 #' data can be downloaded from the referenced URL.
 #' @references \url{https://www.cdc.gov/nchs/nhds/index.htm}
-#' @param save logical, if `TRUE` saves data in the `data/` directory in the
-#'   package source tree
-#' @examples
-#' library(icd)
-#' colSums(comorbid_charlson(nhds2010))
+#' @param save logical, if \code{TRUE} saves data in the \code{data/} directory
+#'   in the package source tree
 #' @keywords internal
 #' @noRd
 parse_nhds2010 <- function(save = TRUE) {
-  widths <- c(2, 1, 1, 2, 1, 1, 1, 2, 1, 4, 1,
-              1, 1, 1, 5, 2,
+  widths <- c(2, 1, 1, 2, 1, 1, 1, 2, 1, 4, 1, 1, 1, 1, 5, 2,
               # now ICD-9 diagnostic codes
               rep.int(5, 15),
               # now ICD-9 procedure codes
@@ -193,12 +189,14 @@ parse_nhds2010 <- function(save = TRUE) {
                               replacement = "",
                               x = nhds2010[[dx_col]])
   }
-  nhds2010 <- cbind(id = seq_len(nrow(nhds2010)),
-                    nhds2010,
-                    stringsAsFactors = FALSE)
-  for (col in grep("dx..", names(nhds2010), value = TRUE))
+  # add a _character_ identifier. icd 3.4 can handle an integer directly
+  nhds2010 <- cbind(
+    id = as.character(seq_len(nrow(nhds2010))),
+    nhds2010,
+    stringsAsFactors = FALSE)
+  for (col in grep("^dx", names(nhds2010), value = TRUE))
     nhds2010[[col]] <- icd::as.icd9cm(nhds2010[[col]])
-  for (col in grep("pc..", names(nhds2010), value = TRUE))
+  for (col in grep("pc..$", names(nhds2010), value = TRUE))
     nhds2010[[col]] <- icd::as.icd9cm_pc(nhds2010[[col]])
   # xz didn't compress as well as bzip2
   if (save)
