@@ -209,7 +209,7 @@ parse_nhds2010 <- function(save = TRUE) {
 
 get_icd34fun <- function() {
   if (exists("as.icd9cm_pc", where = asNamespace("icd"), mode = "function"))
-    get('as.icd9cm_pc', envir = asNamespace("icd"), mode = "function")
+    get("as.icd9cm_pc", envir = asNamespace("icd"), mode = "function")
   else
     function(x) x
 }
