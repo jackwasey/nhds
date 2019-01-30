@@ -2,7 +2,9 @@
 output: github_document
 ---
 
-<!-- rmarkdown::render("README.Rmd") -->
+<!-- 
+rmarkdown::render("README.Rmd")
+#-->
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -12,12 +14,14 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 library(nhds)
+library(icd, quietly = TRUE, warn.conflicts = FALSE)
 ```
 # nhds
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/nhds)](https://cran.r-project.org/package=nhds)
 [![Travis build status](https://travis-ci.org/jackwasey/nhds.svg?branch=master)](https://travis-ci.org/jackwasey/nhds)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/jackwasey/nhds?branch=master&svg=true)](https://ci.appveyor.com/project/jackwasey/nhds)
 <!-- badges: end -->
 
 

@@ -13,7 +13,7 @@ License: GPL-3
 Depends:
     R (>= 2.10)
 Suggests:
-    icd,
+    icd (>= 3.4),
     readr
 Encoding: UTF-8
 LazyData: true

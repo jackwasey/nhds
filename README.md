@@ -1,5 +1,7 @@
 
-<!-- rmarkdown::render("README.Rmd") -->
+<!-- 
+rmarkdown::render("README.Rmd")
+#-->
 
 # nhds
 
@@ -9,6 +11,8 @@
 status](https://www.r-pkg.org/badges/version/nhds)](https://cran.r-project.org/package=nhds)
 [![Travis build
 status](https://travis-ci.org/jackwasey/nhds.svg?branch=master)](https://travis-ci.org/jackwasey/nhds)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/jackwasey/nhds?branch=master&svg=true)](https://ci.appveyor.com/project/jackwasey/nhds)
 <!-- badges: end -->
 
 ICD-9 and ICD-10 definitions from the United States Center for Medicare

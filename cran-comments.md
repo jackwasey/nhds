@@ -1,4 +1,4 @@
-This is a new release.
+This is a new release. It depends (Suggests:) on 'icd' >= 3.4. I am also submitting icd 3.4 with this package.
 
 ## Test environments
 * MacOS Mojave, R 3.5.2
