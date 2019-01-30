@@ -15,6 +15,11 @@ cache:
 
 # Adapt as necessary starting from here
 
+#before_build:
+#  - Rscript -e "install.packages('remotes', repos = 'https://cloud.r-project.org/')"
+#  - Rscript -e "remotes::install_github(\"jackwasey/icd\", ref = \"v3.4\")"
+#  - Rscript -e "remotes::install_github(\"jackwasey/icd\")"
+
 build_script:
   - travis-tool.sh install_deps
 

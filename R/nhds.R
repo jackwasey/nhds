@@ -197,11 +197,19 @@ parse_nhds2010 <- function(save = TRUE) {
   for (col in grep("^dx", names(nhds2010), value = TRUE))
     nhds2010[[col]] <- icd::as.icd9cm(nhds2010[[col]])
   for (col in grep("pc..$", names(nhds2010), value = TRUE))
-    nhds2010[[col]] <- icd::as.icd9cm_pc(nhds2010[[col]])
+    # workaround until everyone has icd 3.4
+    nhds2010[[col]] <- get_icd34fun()(nhds2010[[col]])
   # xz didn't compress as well as bzip2
   if (save)
     save(nhds2010,
          file = file.path("data", "nhds2010.rda"),
          compress = "bzip2", compression_level = 9)
   invisible(nhds2010)
+}
+
+get_icd34fun <- function() {
+  if (exists("as.icd9cm_pc", where = asNamespace("icd"), mode = "function"))
+    get('as.icd9cm_pc', envir = asNamespace("icd"), mode = "function")
+  else
+    function(x) x
 }

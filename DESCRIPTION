@@ -7,9 +7,12 @@ Authors@R:
            role = c("aut", "cre"),
            email = "jack@jackwasey.com")
 Description: The National Hospital Discharge Survey (2010)
-    summarizes the state of patients at the end of their hospital admissions.
-    The data is from a subset of US hospitals and is deidentified.
+    summarizes the state of patients at the end of their hospital
+    admissions.  The data is from a subset of US hospitals and is
+    de-identified.
 License: GPL-3
+URL: https://github.com/jackwasey/nhds
+BugReports: https://github.com/jackwasey/nhds/issues
 Depends:
     R (>= 2.10)
 Suggests:
@@ -18,5 +21,3 @@ Suggests:
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
-URL: https://github.com/jackwasey/nhds
-BugReports: https://github.com/jackwasey/nhds/issues

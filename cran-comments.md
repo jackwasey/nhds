@@ -1,3 +1,5 @@
+I am submitting icd 3.4, icd.data 1.1 and a new pacakge nhds 1.0 simultaneously.
+
 This is a new release. It depends (Suggests:) on 'icd' >= 3.4. I am also submitting icd 3.4 with this package.
 
 ## Test environments
