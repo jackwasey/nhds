@@ -4,7 +4,6 @@ This is a new release.
 * MacOS Mojave, R 3.5.2
 * Ubuntu 14.04 (on travis-ci), R 3.5.2
 * Ubuntu 18.10, R 3.5.2, clang 7.0
-* win-builder devel
 
 ## R CMD check results
 

@@ -17,6 +17,7 @@ The United States National Hospital Discharge Survey (NHDS) 2010
   data, so a simple count was included.
 }
 \examples{
+library(icd)
 head(nhds2010)
 colSums(icd::comorbid_ahrq(nhds2010))
 nhds2010$hypertension <- icd::comorbid_ahrq(nhds2010)[, "HTN"]

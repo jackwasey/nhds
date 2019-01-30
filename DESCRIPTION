@@ -7,14 +7,13 @@ Authors@R:
            role = c("aut", "cre"),
            email = "jack@jackwasey.com")
 Description: The National Hospital Discharge Survey (2010)
-    summarizes the state of patient at the end of hospital admissions for
-    that year. The data is from a subset of US hospitals and is
-    deidentified.
+    summarizes the state of patients at the end of their hospital admissions.
+    The data is from a subset of US hospitals and is deidentified.
 License: GPL-3
 Depends:
     R (>= 2.10)
 Suggests:
-    icd (>= 3.4),
+    icd,
     readr
 Encoding: UTF-8
 LazyData: true

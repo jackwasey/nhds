@@ -11,6 +11,7 @@
 #' @docType data
 #' @keywords datasets
 #' @examples
+#' library(icd)
 #' head(nhds2010)
 #' colSums(icd::comorbid_ahrq(nhds2010))
 #' nhds2010$hypertension <- icd::comorbid_ahrq(nhds2010)[, "HTN"]
