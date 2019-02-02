@@ -17,7 +17,10 @@ Depends:
     R (>= 2.10)
 Suggests:
     icd (>= 3.4),
-    readr
+    readr,
+    knitr,
+    rmarkdown
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
+VignetteBuilder: knitr

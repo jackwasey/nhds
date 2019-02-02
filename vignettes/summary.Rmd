@@ -1,0 +1,88 @@
+---
+title: "Summary of NHDS data"
+author: "Jack O. Wasey"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Summary of NHDS data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+library(nhds)
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# NHDS 2010 data
+
+Information about the data themselves may be found on the US [CDC web site](https://www.cdc.gov/nchs/nhds/index.htm).
+
+## Convenience functions
+
+Convenience functions are provided to filter the data based on age categories and values. These functions drop extraneous fields which arise, e.g. the adult subset loses the newborn flag.
+
+There is no newborn field in the adult subset, and `age` is renamed to `age_years`. `nhds_adults()` and `nhds_adult()` are synonymous.
+
+```{r adult}
+nhds_adult()[1:5, 1:7]
+```
+
+Pediatric data retains `age` and `age_unit`, as age is specified in days, months or years. `nhds_pediatric()` and `nhds_peds()` are synonymous.
+
+```{r peds}
+nhds_pediatric()[11:20, c("age_unit", "age")]
+nhds_pediatric()[1:5, 1:7]
+```
+
+Infants' ages may be in days or months.
+
+```{r infants}
+nhds_infant()[111:115, 1:7]
+```
+
+Although an infant age 29-31 days is not a neonate by definition, all non-neonate infants have ages measured in months, and there are not patients with age recorded as 29-31 days. This may mean one month of age is recorded for these patients.
+
+```{r infvsneo}
+i <- nhds_infant()
+nrow(i[i$age_unit == "days" & i$age > 28, ])
+nhds_infant_not_neonate()[1:5, 1:7]
+```
+
+Neonates (but not newborns) sometimes have marital status recorded as being not single. This appears to be an artefact, but left as is.
+Newborn patients and the 'newborn' field are redundant when using `nhds_neonatal_not_newborn()`. `nhds_neonatal()` and `nhds_neonate()` are synonyms. Same for `nhds_neonatal_not_newborn()` and `nhds_neonate_not_newborn()`.
+
+```{r neo}
+nhds_neonatal()[which(!(nhds_neonatal()$marital_status %in% c("single", "not_stated"))), 1:7]
+nhds_neonatal_not_newborn()[1:5, 1:7]
+```
+
+All newborns have age of zero days recorded, so this field is dropped. `nhds_newborn()` and `nhds_newborns()` are synonymous.
+
+```{r newb}
+nhds_newborn()[1:5, 1:7]
+```
+
+## Counts by age category
+
+```{r barplot, echo = FALSE, fig.width=7, fig.height = 7}
+barplot(las = 2, c(
+  adult = nrow(nhds_adult()),
+  pediatric = nrow(nhds_pediatric()),
+  infant = nrow(nhds_infant()),
+  "infant,\n not\n neonate" = nrow(nhds_infant_not_neonate()),
+  neonate = nrow(nhds_neonate()),
+  "neonate,\n not\n newborn" = nrow(nhds_neonate_not_newborn()),
+  newborn = nrow(nhds_newborn())
+))
+```
+
+## Summary
+
+```{r summary}
+summary(nhds2010)
+```
+
