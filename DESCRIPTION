@@ -9,7 +9,7 @@ Authors@R:
 Description: The National Hospital Discharge Survey (2010)
     summarizes the state of patients at the end of their hospital
     admissions.  The data is from a subset of US hospitals and is
-    de-identified.
+    anonymized.
 License: GPL-3
 URL: https://github.com/jackwasey/nhds
 BugReports: https://github.com/jackwasey/nhds/issues
