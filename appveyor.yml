@@ -16,13 +16,13 @@ cache:
 # Adapt as necessary starting from here
 
 # Appveyor does seem to need correct version of suggested packages:
-before_build:
-  - Rscript -e "install.packages('remotes', repos = 'https://cloud.r-project.org/')"
+#before_build:
+#  - Rscript -e "install.packages('remotes', repos = 'https://cloud.r-project.org/')"
 #  - Rscript -e "remotes::install_github(\"jackwasey/icd\", ref = \"v3.4\")"
-  - Rscript -e "remotes::install_github(\"jackwasey/icd\")"
+#  - Rscript -e "remotes::install_github(\"jackwasey/icd\")"
 
-environment:
-  USE_RTOOLS: true # Set to false if no GitHub packages are necessary
+#environment:
+#  USE_RTOOLS: true # For compiling github packages
 
 build_script:
   - travis-tool.sh install_deps

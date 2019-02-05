@@ -1,6 +1,6 @@
 Package: nhds
 Title: National Hospital Discharge Survey 2010 Data
-Version: 1.0
+Version: 1.0.1
 Authors@R: 
     person(given = "Jack",
            family = "Wasey",
@@ -16,7 +16,7 @@ BugReports: https://github.com/jackwasey/nhds/issues
 Depends:
     R (>= 2.10)
 Suggests:
-    icd (>= 3.4),
+    icd,
     readr,
     knitr,
     rmarkdown

@@ -1,6 +1,6 @@
-I am submitting icd 3.4, icd.data 1.1 and a new pacakge nhds 1.0 simultaneously.
+I am submitting icd 3.4, icd.data 1.1 and a new pacakge nhds 1.0 simultaneously. They previously had interdependencies, but the current submission makes appropriate accommodations for different package versions.
 
-This is a new release. It depends (Suggests:) on 'icd' >= 3.4. I am also submitting icd 3.4 with this package.
+This is a new release.
 
 ## Test environments
 * MacOS Mojave, R 3.5.2
