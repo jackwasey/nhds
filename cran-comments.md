@@ -1,4 +1,4 @@
-I am submitting icd 3.4, icd.data 1.1 and a new pacakge nhds 1.0 simultaneously. They previously had interdependencies, but the current submission makes appropriate accommodations for different package versions.
+I am submitting icd 4.0, icd.data 1.1.1 and a new pacakge nhds 1.0.1 simultaneously. They previously had interdependencies, but the current submission makes appropriate accommodations for different package versions.
 
 This is a new release.
 
