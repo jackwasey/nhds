@@ -1,6 +1,6 @@
 Package: nhds
 Title: National Hospital Discharge Survey 2010 Data
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: 
     person(given = "Jack",
            family = "Wasey",
@@ -8,8 +8,15 @@ Authors@R:
            email = "jack@jackwasey.com")
 Description: The National Hospital Discharge Survey (2010)
     summarizes the state of patients at the end of their hospital
-    admissions.  The data is from a subset of US hospitals and is
-    anonymized.
+    admissions. The US CDC publishes the data in the public domain, and
+    describes it as follows: The National Hospital Discharge Survey (NHDS)
+    is a continuing nationwide sample survey of short-stay hospitals in
+    the United States. The scope of NHDS encompasses patients discharged
+    from noninstitutional hospitals, exclusive of military and Department
+    of Veterans Affairs hospitals, located in the 50 States and the
+    District of Columbia. Only hospitals having six or more beds for
+    in-patient use are included in the survey. See
+    https://www.cdc.gov/nchs/nhds for more information.
 License: GPL-3
 URL: https://github.com/jackwasey/nhds
 BugReports: https://github.com/jackwasey/nhds/issues
@@ -17,10 +24,11 @@ Depends:
     R (>= 2.10)
 Suggests:
     icd,
-    readr,
     knitr,
+    readr,
     rmarkdown
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
-VignetteBuilder: knitr
+VignetteBuilder: 
+    knitr
