@@ -21,8 +21,10 @@ cache:
 #  - Rscript -e "remotes::install_github(\"jackwasey/icd\", ref = \"v3.4\")"
 #  - Rscript -e "remotes::install_github(\"jackwasey/icd\")"
 
-#environment:
-#  USE_RTOOLS: true # For compiling github packages
+environment:
+  USE_RTOOLS: true # For compiling github (or any?) packages
+  WARNINGS_ARE_ERRORS: 1
+  _R_CHECK_EXIT_ON_FIRST_ERROR_: true
 
 build_script:
   - travis-tool.sh install_deps
