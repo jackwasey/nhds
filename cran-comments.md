@@ -3,7 +3,8 @@ This is a new release, resubmitted after addressing CRAN's comments on the DESCR
 ## Test environments
 * MacOS Mojave, R 3.5.2
 * Ubuntu 14.04 (on travis-ci), R 3.5.2
-* Ubuntu 18.10, R 3.5.2, clang 7.0
+* Ubuntu 18.10, R 3.5.3
+* r-hub
 
 ## R CMD check results
 

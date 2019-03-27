@@ -52,7 +52,7 @@ nrow(i[i$age_unit == "days" & i$age > 28, ])
 nhds_infant_not_neonate()[1:5, 1:7]
 ```
 
-Neonates (but not newborns) sometimes have marital status recorded as being not single. This appears to be an artefact, but left as is.
+Neonates (but not newborns) sometimes have marital status recorded as being not single. This appears to be an artifact, but left as is.
 Newborn patients and the 'newborn' field are redundant when using `nhds_neonatal_not_newborn()`. `nhds_neonatal()` and `nhds_neonate()` are synonyms. Same for `nhds_neonatal_not_newborn()` and `nhds_neonate_not_newborn()`.
 
 ```{r neo}
