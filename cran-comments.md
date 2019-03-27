@@ -1,4 +1,6 @@
-This is a new release, resubmitted after addressing CRAN's comments on the DESCRIPTION content, requesting more detail and a reference, and adding angular brackets around URL in DESCRIPTION.
+This is a new release, resubmitted after addressing CRAN's comments on the DESCRIPTION content, requesting more detail and a reference, and adding angular brackets around URL in DESCRIPTION. 'They 'nhds' previously had a dependency on a simultaneous submission for package 'icd', but the current submission no longer requires a particular version of 'icd.'
+
+This is a new release.
 
 ## Test environments
 * MacOS Mojave, R 3.5.2
