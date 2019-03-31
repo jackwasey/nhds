@@ -15,17 +15,16 @@ status](https://travis-ci.org/jackwasey/nhds.svg?branch=master)](https://travis-
 status](https://ci.appveyor.com/api/projects/status/github/jackwasey/nhds?branch=master&svg=true)](https://ci.appveyor.com/project/jackwasey/nhds)
 <!-- badges: end -->
 
-ICD-9 and ICD-10 definitions from the United States Center for Medicare
-and Medicaid Services (CMS) are included in this package. A function is
-provided to extract the WHO ICD-10 definitions from the public
-interface, but the data themselves may not currently be redistributed.
-The function ‘fetch\_icd10who2016()’ should be run once after installing
-this package. There are diagnostic and procedure codes, and lists of the
-chapter and sub-chapter headings and the ranges of ICD codes they
-encompass. There are also two sets of sample patient data with ICD-9 and
-ICD-10 codes representing real patients and spanning common structures
-of patient data. These data are used by the ‘icd’ package for finding
-comorbidities and working with ICD codes.
+The National Hospital Discharge Survey (2010) summarizes the state of
+patients at the end of their hospital admissions. The US CDC publishes
+the data in the public domain, and describes it as follows: The National
+Hospital Discharge Survey (NHDS) is a continuing nationwide sample
+survey of short-stay hospitals in the United States. The scope of NHDS
+encompasses patients discharged from noninstitutional hospitals,
+exclusive of military and Department of Veterans Affairs hospitals,
+located in the 50 States and the District of Columbia. Only hospitals
+having six or more beds for in-patient use are included in the survey.
+See <https://www.cdc.gov/nchs/nhds> for more information.
 
 See documentation for the [R CRAN package:
 icd](https://jackwasey.github.io/icd/) for how to use this data. See

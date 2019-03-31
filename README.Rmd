@@ -26,7 +26,7 @@ library(icd, quietly = TRUE, warn.conflicts = FALSE)
 
 
 ```{r pkgdesc, results = 'asis', echo = FALSE}
-cat(packageDescription("icd.data")$Description)
+cat(packageDescription("nhds")$Description)
 ```
 
 See documentation for the [R CRAN package: icd](https://jackwasey.github.io/icd/) for how to use this data. See also the [R CRAN package: icd.data](https://cran.r-project.org/package=icd.data).
