@@ -13,7 +13,10 @@ vignette: >
 library(nhds)
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 7,
+  out.width = "100%"
 )
 ```
 
@@ -68,7 +71,7 @@ nhds_newborn()[1:5, 1:7]
 
 ## Counts by age category
 
-```{r barplot, echo = FALSE, fig.width=7, fig.height = 7}
+```{r barplot, echo = FALSE}
 barplot(las = 2, c(
   adult = nrow(nhds_adult()),
   pediatric = nrow(nhds_pediatric()),
@@ -78,6 +81,29 @@ barplot(las = 2, c(
   "neonate,\n not\n newborn" = nrow(nhds_neonate_not_newborn()),
   newborn = nrow(nhds_newborn())
 ))
+```
+
+# NHDS and Comorbidities
+
+Inspired by question from Abhishek Deshpande:
+
+```{r hypertensioncharlson}
+nhds <- nhds::nhds_adult()
+nhds$hypertension <- icd::comorbid_ahrq(nhds)[, "HTN"]
+nhds$charlson <- icd::charlson(nhds)
+hist(nhds[["age_years"]],
+     main = "Age of adult NHDS patients", 
+     xlab = "Age in years")
+boxplot(age_years ~ hypertension, 
+        data = nhds,
+        outline = FALSE,
+        ylab = "Age")
+boxplot(charlson ~ adm_type, 
+        data = nhds,
+        las = 2, 
+        varwidth = TRUE, 
+        outline = FALSE,
+        ylab = "Charlson Score")
 ```
 
 ## Summary

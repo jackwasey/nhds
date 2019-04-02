@@ -17,7 +17,6 @@ The United States National Hospital Discharge Survey (NHDS) 2010
   data, so a simple count was included.
 }
 \examples{
-if (require("icd", versionCheck(version = "3.4", op = ">="))) {
 head(nhds2010)
 colSums(icd::comorbid_ahrq(nhds2010))
 nhds2010$hypertension <- icd::comorbid_ahrq(nhds2010)[, "HTN"]
@@ -37,7 +36,6 @@ boxplot(charlson ~ adm_type,
         outline = FALSE,
         ylab = "Charlson Score"
 )
-}
 }
 \concept{Diagnostic codes}
 \concept{Hospital}

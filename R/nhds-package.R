@@ -11,7 +11,6 @@
 #' @docType data
 #' @keywords datasets
 #' @examples
-#' if (require("icd", versionCheck(version = "3.4", op = ">="))) {
 #' head(nhds2010)
 #' colSums(icd::comorbid_ahrq(nhds2010))
 #' nhds2010$hypertension <- icd::comorbid_ahrq(nhds2010)[, "HTN"]
@@ -31,7 +30,6 @@
 #'         outline = FALSE,
 #'         ylab = "Charlson Score"
 #' )
-#' }
 #' @concept Hospital
 #' @concept Diagnostic codes
 #' @concept ICD-9 codes
