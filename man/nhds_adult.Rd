@@ -75,9 +75,13 @@ nhds_infant()[111:115, 1:7]
 nhds_infant_not_neonate()[1:5, 1:7]
 nhds_neonatal()[1:5, 1:7]
 nhds_neonatal_not_newborn()[1:5, 1:7]
-identical(nhds_neonatal()[1:10, ],
-          nhds_neonate()[1:10, ])
-identical(nhds_neonatal_not_newborn()[1:10, ],
-          nhds_neonate_not_newborn()[1:10, ])
+identical(
+  nhds_neonatal()[1:10, ],
+  nhds_neonate()[1:10, ]
+)
+identical(
+  nhds_neonatal_not_newborn()[1:10, ],
+  nhds_neonate_not_newborn()[1:10, ]
+)
 nhds_newborn()[1:5, 1:7]
 }

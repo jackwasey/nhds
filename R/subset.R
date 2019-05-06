@@ -28,16 +28,19 @@
 #' nhds_infant_not_neonate()[1:5, 1:7]
 #' nhds_neonatal()[1:5, 1:7]
 #' nhds_neonatal_not_newborn()[1:5, 1:7]
-#' identical(nhds_neonatal()[1:10, ],
-#'           nhds_neonate()[1:10, ])
-#' identical(nhds_neonatal_not_newborn()[1:10, ],
-#'           nhds_neonate_not_newborn()[1:10, ])
+#' identical(
+#'   nhds_neonatal()[1:10, ],
+#'   nhds_neonate()[1:10, ]
+#' )
+#' identical(
+#'   nhds_neonatal_not_newborn()[1:10, ],
+#'   nhds_neonate_not_newborn()[1:10, ]
+#' )
 #' nhds_newborn()[1:5, 1:7]
 #' @export
 nhds_adult <- function(
-  nhds_data = nhds::nhds2010,
-  rename_age = TRUE
-) {
+                       nhds_data = nhds::nhds2010,
+                       rename_age = TRUE) {
   out <- nhds_data[nhds_data$age_unit == "years", ]
   out <- out[out$age >= 18, ]
   out[c("newborn", "age_unit")] <- NULL
@@ -52,12 +55,11 @@ nhds_adults <- nhds_adult
 #' @rdname nhds_adult
 #' @export
 nhds_pediatric <- function(
-  nhds_data = nhds::nhds2010
-) {
+                           nhds_data = nhds::nhds2010) {
   out <- nhds_data[
     (nhds_data$age_unit == "years" & nhds_data$age < 18) |
       (nhds_data$age_unit != "years"),
-    ]
+  ]
   out
 }
 
@@ -68,9 +70,8 @@ nhds_peds <- nhds_pediatric
 #' @rdname nhds_adult
 #' @export
 nhds_neonatal <- function(
-  nhds_data = nhds::nhds2010,
-  rename_age = TRUE
-) {
+                          nhds_data = nhds::nhds2010,
+                          rename_age = TRUE) {
   out <- nhds_data[nhds_data$age_unit == "days", ]
   out <- out[out$age <= 28, ]
   out$age_unit <- NULL
@@ -81,9 +82,8 @@ nhds_neonatal <- function(
 #' @rdname nhds_adult
 #' @export
 nhds_neonatal_not_newborn <- function(
-  nhds_data = nhds::nhds2010,
-  rename_age = TRUE
-) {
+                                      nhds_data = nhds::nhds2010,
+                                      rename_age = TRUE) {
   out <- nhds_data[nhds_data$age_unit == "days", ]
   out <- out[!out$newborn, ]
   out <- out[out$age <= 28, ]
@@ -103,18 +103,16 @@ nhds_neonate <- nhds_neonatal
 #' @rdname nhds_adult
 #' @export
 nhds_infant <- function(
-  nhds_data = nhds::nhds2010,
-  rename_age = TRUE
-) {
+                        nhds_data = nhds::nhds2010,
+                        rename_age = TRUE) {
   nhds_data[nhds_data$age_unit != "years", ]
 }
 
 #' @rdname nhds_adult
 #' @export
 nhds_infant_not_neonate <- function(
-  nhds_data = nhds::nhds2010,
-  rename_age = TRUE
-) {
+                                    nhds_data = nhds::nhds2010,
+                                    rename_age = TRUE) {
   out <- nhds_data[nhds_data$age_unit != "years", ]
   out <- out[!out$newborn, ]
   out$newborn <- NULL
@@ -124,8 +122,7 @@ nhds_infant_not_neonate <- function(
 #' @rdname nhds_adult
 #' @export
 nhds_newborn <- function(
-  nhds_data = nhds::nhds2010
-) {
+                         nhds_data = nhds::nhds2010) {
   out <- nhds_data[nhds_data$newborn, ]
   out[c("newborn", "age_unit", "age", "adm_type", "marital_status")] <- NULL
   out
