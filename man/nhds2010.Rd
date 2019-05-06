@@ -22,19 +22,20 @@ colSums(icd::comorbid_ahrq(nhds2010))
 nhds2010$hypertension <- icd::comorbid_ahrq(nhds2010)[, "HTN"]
 nhds2010$charlson <- icd::charlson(nhds2010)
 hist(nhds2010[nhds2010$age_unit == "years", "age"],
-     main = "Histogram of age when specified in years",
-     xlab = "Age in years"
+  main = "Histogram of age when specified in years",
+  xlab = "Age in years"
 )
 boxplot(age ~ hypertension,
-        data = nhds2010,
-        outline = FALSE,
-        ylab = "Age")
+  data = nhds2010,
+  outline = FALSE,
+  ylab = "Age"
+)
 boxplot(charlson ~ adm_type,
-        data = nhds2010,
-        las = 2,
-        varwidth = TRUE,
-        outline = FALSE,
-        ylab = "Charlson Score"
+  data = nhds2010,
+  las = 2,
+  varwidth = TRUE,
+  outline = FALSE,
+  ylab = "Charlson Score"
 )
 }
 \concept{Diagnostic codes}

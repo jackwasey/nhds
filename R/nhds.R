@@ -9,19 +9,20 @@
 #' @keywords internal
 #' @noRd
 parse_nhds2010 <- function(save = TRUE) {
-  widths <- c(2, 1, 1, 2, 1, 1, 1, 2, 1, 4, 1, 1, 1, 1, 5, 2,
-              # now ICD-9 diagnostic codes
-              rep.int(5, 15),
-              # now ICD-9 procedure codes
-              rep.int(4, 8),
-              2, 2, 3, 1, 2,
-              # admitting diagnosis
-              5
+  widths <- c(
+    2, 1, 1, 2, 1, 1, 1, 2, 1, 4, 1, 1, 1, 1, 5, 2,
+    # now ICD-9 diagnostic codes
+    rep.int(5, 15),
+    # now ICD-9 procedure codes
+    rep.int(4, 8),
+    2, 2, 3, 1, 2,
+    # admitting diagnosis
+    5
   )
   col_spec <- readr::cols(
     .default = readr::col_character(),
     X1 = readr::col_skip(), # year (always 10!)
-    X2 = readr::col_integer(), #newborn logical
+    X2 = readr::col_integer(), # newborn logical
     X3 = readr::col_integer(), # age unit
     X4 = readr::col_integer(), # age
     X5 = readr::col_integer(), # gender
@@ -88,7 +89,8 @@ parse_nhds2010 <- function(save = TRUE) {
   nhds2010$age_unit <- mkf(nhds2010$age_unit, c(
     "years" = 1,
     "months" = 2,
-    "days" = 3))
+    "days" = 3
+  ))
   nhds2010$sex <- mkf(nhds2010$sex, c(
     "male" = 1,
     "female" = 2
@@ -101,14 +103,16 @@ parse_nhds2010 <- function(save = TRUE) {
     "native_island" = 5,
     "other" = 6,
     "multiple" = 8,
-    "not_stated" = 9))
+    "not_stated" = 9
+  ))
   nhds2010$marital_status <- mkf(nhds2010$marital_status, c(
     "married" = 1,
     "single" = 2,
     "widowed" = 3,
     "divorced" = 4,
     "separated" = 5,
-    "not_stated" = 9))
+    "not_stated" = 9
+  ))
   nhds2010$dc_status <- mkf(nhds2010$dc_status, c(
     "home" = 1,
     "AMA" = 2,
@@ -116,7 +120,8 @@ parse_nhds2010 <- function(save = TRUE) {
     "long_term" = 4,
     "alive_NOS" = 5,
     "dead" = 6,
-    "not_stated" = 9))
+    "not_stated" = 9
+  ))
   nhds2010$dc_same_day <- nhds2010$dc_same_day == 0
   nhds2010$region <- mkf(nhds2010$region, c(
     "northeast" = 1,
@@ -147,7 +152,8 @@ parse_nhds2010 <- function(save = TRUE) {
     "self pay" = 8,
     "no charge" = 9,
     "other" = 10,
-    "not stated" = 99))
+    "not stated" = 99
+  ))
   nhds2010$payor_secondary <- mkf(nhds2010$payor_secondary, c(
     "worker compensation" = 1,
     "Medicare" = 2,
@@ -159,7 +165,8 @@ parse_nhds2010 <- function(save = TRUE) {
     "self pay" = 8,
     "no charge" = 9,
     "other" = 10,
-    "not stated" = 99))
+    "not stated" = 99
+  ))
   nhds2010$adm_type <- mkf(nhds2010$adm_type, c(
     "emergency" = 1,
     "urgent" = 2,
@@ -185,31 +192,39 @@ parse_nhds2010 <- function(save = TRUE) {
   ))
   nhds2010 <- as.data.frame(nhds2010)
   for (dx_col in c(15:37, 43)) {
-    nhds2010[[dx_col]] <- sub(pattern = "-",
-                              replacement = "",
-                              x = nhds2010[[dx_col]])
+    nhds2010[[dx_col]] <- sub(
+      pattern = "-",
+      replacement = "",
+      x = nhds2010[[dx_col]]
+    )
   }
   # add a _character_ identifier. icd 3.4 can handle an integer directly
   nhds2010 <- cbind(
     id = as.character(seq_len(nrow(nhds2010))),
     nhds2010,
-    stringsAsFactors = FALSE)
-  for (col in grep("^dx", names(nhds2010), value = TRUE))
+    stringsAsFactors = FALSE
+  )
+  for (col in grep("^dx", names(nhds2010), value = TRUE)) {
     nhds2010[[col]] <- icd::as.icd9cm(nhds2010[[col]])
-  for (col in grep("pc..$", names(nhds2010), value = TRUE))
+  }
+  for (col in grep("pc..$", names(nhds2010), value = TRUE)) {
     # workaround until everyone has icd 3.4
     nhds2010[[col]] <- get_icd34fun()(nhds2010[[col]])
+  }
   # xz didn't compress as well as bzip2
-  if (save)
+  if (save) {
     save(nhds2010,
-         file = file.path("data", "nhds2010.rda"),
-         compress = "bzip2", compression_level = 9)
+      file = file.path("data", "nhds2010.rda"),
+      compress = "bzip2", compression_level = 9
+    )
+  }
   invisible(nhds2010)
 }
 
 get_icd34fun <- function() {
-  if (exists("as.icd9cm_pc", where = asNamespace("icd"), mode = "function"))
+  if (exists("as.icd9cm_pc", where = asNamespace("icd"), mode = "function")) {
     get("as.icd9cm_pc", envir = asNamespace("icd"), mode = "function")
-  else
+  } else {
     function(x) x
+  }
 }
