@@ -25,8 +25,7 @@ nhds_peds(nhds_data = nhds::nhds2010)
 
 nhds_neonatal(nhds_data = nhds::nhds2010, rename_age = TRUE)
 
-nhds_neonatal_not_newborn(nhds_data = nhds::nhds2010,
-  rename_age = TRUE)
+nhds_neonatal_not_newborn(nhds_data = nhds::nhds2010, rename_age = TRUE)
 
 nhds_neonate_not_newborn(nhds_data = nhds::nhds2010, rename_age = TRUE)
 

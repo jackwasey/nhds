@@ -1,0 +1,106 @@
+{
+  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@type": "SoftwareSourceCode",
+  "identifier": "nhds",
+  "description": "The National Hospital Discharge Survey (2010)\n    summarizes the state of patients at the end of their hospital\n    admissions. The US CDC publishes the data in the public domain, and\n    describes it as follows: The National Hospital Discharge Survey (NHDS)\n    is a continuing nationwide sample survey of short-stay hospitals in\n    the United States. The scope of NHDS encompasses patients discharged\n    from noninstitutional hospitals, exclusive of military and Department\n    of Veterans Affairs hospitals, located in the 50 States and the\n    District of Columbia. Only hospitals having six or more beds for\n    in-patient use are included in the survey. See\n    <https://www.cdc.gov/nchs/nhds> for more information.",
+  "name": "nhds: National Hospital Discharge Survey 2010 Data",
+  "codeRepository": "https://github.com/jackwasey/nhds",
+  "issueTracker": "https://github.com/jackwasey/nhds/issues",
+  "license": "https://spdx.org/licenses/GPL-3.0",
+  "version": "1.0.4",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "R",
+    "url": "https://r-project.org"
+  },
+  "runtimePlatform": "R version 4.0.2 (2020-06-22)",
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
+  },
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Jack",
+      "familyName": "Wasey",
+      "email": "jack@jackwasey.com"
+    }
+  ],
+  "contributor": {},
+  "copyrightHolder": {},
+  "funder": {},
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Jack",
+      "familyName": "Wasey",
+      "email": "jack@jackwasey.com"
+    }
+  ],
+  "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "icd",
+      "name": "icd",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=icd"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "readr",
+      "name": "readr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=readr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+    }
+  ],
+  "softwareRequirements": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 2.10"
+    }
+  ],
+  "releaseNotes": "https://github.com/jackwasey/nhds/blob/master/NEWS.md",
+  "readme": "https://github.com/jackwasey/nhds/blob/master/README.md",
+  "fileSize": "30082.857KB",
+  "contIntegration": ["https://travis-ci.org/jackwasey/nhds", "https://ci.appveyor.com/project/jackwasey/nhds"],
+  "developmentStatus": "https://www.tidyverse.org/lifecycle/#stable",
+  "relatedLink": "https://CRAN.R-project.org/package=nhds"
+}

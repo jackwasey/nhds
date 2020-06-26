@@ -8,11 +8,13 @@ rmarkdown::render("README.Rmd")
 <!-- badges: start -->
 
 [![CRAN
-status](https://www.r-pkg.org/badges/version/nhds)](https://cran.r-project.org/package=nhds)
+status](https://www.r-pkg.org/badges/version/nhds)](https://CRAN.R-project.org/package=nhds)
 [![Travis build
 status](https://travis-ci.org/jackwasey/nhds.svg?branch=master)](https://travis-ci.org/jackwasey/nhds)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/jackwasey/nhds?branch=master&svg=true)](https://ci.appveyor.com/project/jackwasey/nhds)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 <!-- badges: end -->
 
 The National Hospital Discharge Survey (2010) summarizes the state of
